@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=NocoBase CLI GUI
+Exec=sh -c 'npx -y nocobase-cli-gui'
+Terminal=true
+Categories=Development;

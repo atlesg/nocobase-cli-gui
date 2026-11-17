@@ -1,0 +1,62 @@
+{
+  "name": "nocobase-cli-gui",
+  "version": "0.1.0",
+  "description": "Compact local web GUI for the NocoBase CLI (nb)",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "nocobase-cli-gui": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "launchers"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "NB_GUI_DEV=1 tsx watch src/server/index.ts",
+    "dev:web": "vite",
+    "build": "vite build && esbuild src/server/index.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "start": "node bin/cli.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "optionalDependencies": {
+    "node-pty": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/ws": "^8.5.13",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.24.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atlesg/nocobase-cli-gui.git"
+  },
+  "homepage": "https://github.com/atlesg/nocobase-cli-gui#readme",
+  "bugs": {
+    "url": "https://github.com/atlesg/nocobase-cli-gui/issues"
+  },
+  "keywords": [
+    "nocobase",
+    "cli",
+    "gui",
+    "nb"
+  ]
+}
